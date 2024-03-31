@@ -1,0 +1,6 @@
+@NewViteProject_HostAddress = http://localhost:5082
+
+GET {{NewViteProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
