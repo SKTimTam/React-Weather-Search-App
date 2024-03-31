@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pgun0\\NewViteProj\\API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|c:\\users\\pgun0\\newviteproj\\api\\newviteproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|solutionrelative:newviteproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|c:\\users\\pgun0\\newviteproj\\api\\newviteproject\\models\\sampledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|solutionrelative:newviteproject\\models\\sampledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|c:\\users\\pgun0\\newviteproj\\api\\newviteproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|solutionrelative:newviteproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|c:\\users\\pgun0\\newviteproj\\api\\newviteproject\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|solutionrelative:newviteproject\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|c:\\users\\pgun0\\newviteproj\\api\\newviteproject\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A645021-AD40-4F84-BBE5-D67E5BF92679}|NewViteProject\\NewViteProject.csproj|solutionrelative:newviteproject\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\appsettings.json",
+              "RelativeDocumentMoniker": "NewViteProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\appsettings.json",
+              "RelativeToolTip": "NewViteProject\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-24T09:45:19.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Program.cs",
+              "RelativeDocumentMoniker": "NewViteProject\\Program.cs",
+              "ToolTip": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Program.cs",
+              "RelativeToolTip": "NewViteProject\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T08:09:50.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "NewViteProject\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "NewViteProject\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T08:09:45.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SampleDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Models\\SampleDBContext.cs",
+              "RelativeDocumentMoniker": "NewViteProject\\Models\\SampleDBContext.cs",
+              "ToolTip": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Models\\SampleDBContext.cs",
+              "RelativeToolTip": "NewViteProject\\Models\\SampleDBContext.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAkwBcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T08:09:04.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TEST.cs",
+              "DocumentMoniker": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Models\\TEST.cs",
+              "RelativeDocumentMoniker": "NewViteProject\\Models\\TEST.cs",
+              "ToolTip": "C:\\Users\\pgun0\\NewViteProj\\API\\NewViteProject\\Models\\TEST.cs",
+              "RelativeToolTip": "NewViteProject\\Models\\TEST.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T08:07:27.795Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
