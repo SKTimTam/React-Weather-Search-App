@@ -45,7 +45,7 @@ interface conditionDetails {
 };
 
 export interface WeatherRequestResponse {
-    data: WeatherRequests[];
+    data: WeatherRequests;
 }
 
 interface WeatherRequests {

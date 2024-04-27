@@ -1,38 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
-import { Button } from "@/components/ui/button"
+import axios, { AxiosResponse } from 'axios'
+import { WeatherRequestResponse } from './types/WeatherRequests';
 
+const token = "e05f10347f584d3bade00436243103";
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+ function App() {
+  const [weatherData,setWeatherData] = useState<AxiosResponse | null>(null);
+  useEffect(() => {
+    fetchDataApi('London')
+  }, []);
+  const fetchDataApi = (CityName:string) => {
+    axios.get<WeatherRequestResponse>(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${CityName}`)
+    .then ((response)=>{
+      return setWeatherData(response);
+    })
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      {weatherData && (
+        <div>
+          <h2> City: {weatherData.data.location.name}</h2>
+          <p>Temperature is: {weatherData.data.current.temp_c}</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
-export default App
+export default App;
