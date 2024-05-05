@@ -6,7 +6,7 @@ import { Input } from './components/ui/input';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
 
-const token = "e05f10347f584d3bade00436243103";
+  const token = process.env.REACT_APP_API_KEY;
 
  function App() {
 
@@ -23,24 +23,34 @@ const token = "e05f10347f584d3bade00436243103";
   };
   
   return (
-    <div className="grid-container">
-      <div className="grid-item">
-        <Input type="string" placeholder="City Name" onChange={(e)=>setCity(e.target.value)}/>
+    <>
+      <div className="flex-container" style={{display: 'flex'}} >
+        <Input className="w-[300px]" type="string" placeholder="City Name" onChange={(e)=>setCity(e.target.value)}/>
+        <Button className="w-[50px]" type="submit" onClick={fetchDataApi}>Search</Button>
       </div>
-      <div className="grid-item">
-        <Button type="submit" onClick={fetchDataApi}>Search</Button>
+      <div className="flex-container" style={{display: 'flex', flexDirection: 'column'}} >
+          {weatherData ? (
+            <Card className="w-[350px]">
+              <CardHeader>
+                <CardTitle> City: {weatherData.data.location.name}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>Temperature is: {weatherData.data.current.temp_c} Celsius</p>
+                <p>Local time is: {weatherData.data.location.localtime}</p>
+                <p>Condition is : {weatherData.data.current.condition.text}</p>
+              </CardContent>
+            </Card>
+          ) : 
+            <Card className="w-[350px]">
+              <CardHeader>
+                <CardTitle> Enter in a City Name please</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p> Try your favourite City!</p>
+              </CardContent>
+            </Card>}
       </div>
-        {weatherData && (
-          <Card>
-            <CardHeader>
-              <CardTitle> City: {weatherData.data.location.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Temperature is: {weatherData.data.current.temp_c} Celsius</p>
-            </CardContent>
-          </Card>
-        )}
-    </div>
+    </>
   );
 };
 
