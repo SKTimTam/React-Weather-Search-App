@@ -1,43 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import axios, { AxiosResponse } from 'axios'
 import { WeatherRequestResponse } from './types/WeatherRequests';
 import { Input } from './components/ui/input';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
+import { getDataApi } from './services/DataAPI';
 
-  const token = process.env.REACT_APP_API_KEY;
 
- function App() {
+  function App() {
 
-  const [weatherData,setWeatherData] = useState<AxiosResponse | null>(null);
+  const [weatherData,setWeatherData] = useState<WeatherRequestResponse>();
   const [city, setCity] = useState('');
 
-
-
-  const fetchDataApi = () => {
-    axios.get<WeatherRequestResponse>(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${city}`)
-    .then ((response)=>{
-      return setWeatherData(response);
-    })
-  };
+  useEffect(()=>{
+    localStorage.setItem('cities', JSON.stringify(city));
+  },[city])
   
+  console.log(localStorage)
+
   return (
     <>
       <div className="flex-container" style={{display: 'flex'}} >
         <Input className="w-[300px]" type="string" placeholder="City Name" onChange={(e)=>setCity(e.target.value)}/>
-        <Button className="w-[50px]" type="submit" onClick={fetchDataApi}>Search</Button>
+        <Button className="w-[50px]" type="submit" onClick={()=>getDataApi(city, setWeatherData)}>Search</Button>
       </div>
       <div className="flex-container" style={{display: 'flex', flexDirection: 'column'}} >
+        <br></br>
           {weatherData ? (
             <Card className="w-[350px]">
               <CardHeader>
-                <CardTitle> City: {weatherData.data.location.name}</CardTitle>
+                <CardTitle> City: {weatherData.location.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>Temperature is: {weatherData.data.current.temp_c} Celsius</p>
-                <p>Local time is: {weatherData.data.location.localtime}</p>
-                <p>Condition is : {weatherData.data.current.condition.text}</p>
+                <p>Temperature is: {weatherData.current.temp_c} Celsius</p>
+                <p>Local time is: {weatherData.location.localtime}</p>
+                <p>Condition is : {weatherData.current.condition.text}</p>
+                <p>Latitude is : {weatherData.location.lat}</p>
+                <p>Longtitude is : {weatherData.location.lon}</p>
               </CardContent>
             </Card>
           ) : 
