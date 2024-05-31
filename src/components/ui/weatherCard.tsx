@@ -23,13 +23,5 @@ export default function WeatherCard(props: weatherCardProps){
                     <p>Previous Searched City: {props.historyData[props.historyData.length - 2]}</p>
                 </CardContent>
             </Card>
-            <span style={{ display: 'inline-block', width: '100px' }}></span>
-            <Card className='w-[700px]' style={{ textAlign: 'left' }}>
-                <CardHeader>
-                    <CardTitle>Facts about {props.data.location.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                </CardContent>
-            </Card>
         </>
 )}

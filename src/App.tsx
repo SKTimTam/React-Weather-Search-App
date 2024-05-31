@@ -4,10 +4,11 @@ import { WeatherRequestResponse } from './types/WeatherRequests';
 import { Input } from './components/ui/input';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
-import { getDataApi } from './services/DataAPI';
-import { Header } from './components/ui/header';
+import { getWeatherDataApi } from './services/WeatherDataAPI';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
-import WeatherCard  from './components/ui/weatherCard'
+import { Header } from './components/ui/header';
+import WeatherCard from './components/ui/weatherCard';
+
 
 
 
@@ -17,7 +18,6 @@ import WeatherCard  from './components/ui/weatherCard'
   const [weatherData,setWeatherData] = useState<WeatherRequestResponse>();
   const [city, setCity] = useState('');
   const [history, setHistory] = useState([''])
-  const [center, setCenter] = useState<[number, number] | undefined>([50,50])
 
   
   function ChangeMapView({center}: any) {
@@ -31,16 +31,14 @@ import WeatherCard  from './components/ui/weatherCard'
 
 
   const handleButtonClick = () => {
-    getDataApi(city,setWeatherData);
+    getWeatherDataApi(city, setWeatherData);
     setHistory((history)=> [...history, city]);
-    if (weatherData) {
-      setCenter([weatherData.location.lat,weatherData.location.lon])
-    }
+
   }
 
   console.log(history)
   console.log(weatherData)
-  console.log(center)
+
 
   
   return (
@@ -57,8 +55,23 @@ import WeatherCard  from './components/ui/weatherCard'
         <br/>
           {weatherData ? (
             <>
-              <div className="flex-container" style={{display: 'flex', flexDirection: 'row'}}>
+              <div className="flex-container" style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between'}}>
                 <WeatherCard data={weatherData} historyData={history}/>
+                {/* <span style={{ display: 'inline-block', width: '100px' }}></span> */}
+                <Card className='w-[350px]' style={{ textAlign: 'left' }}>
+                    <CardHeader>
+                        <CardTitle>Weather Forecast: {weatherData.location.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                    </CardContent>
+                </Card>
+                <Card className='w-[350px]' style={{ textAlign: 'left' }}>
+                    <CardHeader>
+                        <CardTitle>Facts about {weatherData.location.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                    </CardContent>
+                </Card>
               </div>
               <br/>
                 <MapContainer center={[weatherData.location.lat,weatherData.location.lon]} zoom={13} scrollWheelZoom={false}>
