@@ -18,8 +18,7 @@ export default function WeatherCard(props: weatherCardProps){
                     <p>Temperature is: {props.data.current.temp_c} Celsius</p>
                     <p>Local time is: {props.data.location.localtime}</p>
                     <p>Condition is : {props.data.current.condition.text}</p>
-                    <p>Latitude is : {props.data.location.lat}</p>
-                    <p>Longtitude is : {props.data.location.lon}</p>
+                    <p>Humidity is : {props.data.current.humidity}%</p>
                     <p>Previous Searched City: {props.historyData[props.historyData.length - 2]}</p>
                 </CardContent>
             </Card>
