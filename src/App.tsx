@@ -13,12 +13,12 @@ import WeatherCard from './components/ui/weatherCard';
 
 
 
-  function App() {
+function App() {
 
   const [weatherData,setWeatherData] = useState<WeatherRequestResponse>();
   const [city, setCity] = useState('');
   const [history, setHistory] = useState([''])
-
+  const [isLoading, setIsLoading] = useState(false); 
   
   function ChangeMapView({center}: any) {
     console.log(center);
@@ -27,15 +27,15 @@ import WeatherCard from './components/ui/weatherCard';
     return null;
   }
 
-
-
-
   const handleButtonClick = () => {
-    getWeatherDataApi(city, setWeatherData);
+    getWeatherDataApi(city, setWeatherData,setIsLoading);
     setHistory((history)=> [...history, city]);
 
   }
 
+
+  //I want a 2 different card, 1 with weather forecast. (Another API) 1 with facts about the city
+  //
   console.log(history)
   console.log(weatherData)
 
@@ -56,8 +56,7 @@ import WeatherCard from './components/ui/weatherCard';
           {weatherData ? (
             <>
               <div className="flex-container" style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between'}}>
-                <WeatherCard data={weatherData} historyData={history}/>
-                {/* <span style={{ display: 'inline-block', width: '100px' }}></span> */}
+                {isLoading ? <div className="loader"/>: <WeatherCard data={weatherData} historyData={history}/>}
                 <Card className='w-[350px]' style={{ textAlign: 'left' }}>
                     <CardHeader>
                         <CardTitle>Weather Forecast: {weatherData.location.name}</CardTitle>
@@ -70,6 +69,9 @@ import WeatherCard from './components/ui/weatherCard';
                         <CardTitle>Facts about {weatherData.location.name}</CardTitle>
                     </CardHeader>
                     <CardContent>
+                      <p>Latitude is : {weatherData.location.lat}</p>
+                      <p>Longtitude is : {weatherData.location.lon}</p>
+                      <p>Region is : {weatherData.location.region}</p>
                     </CardContent>
                 </Card>
               </div>
@@ -89,7 +91,7 @@ import WeatherCard from './components/ui/weatherCard';
               <CardTitle> Enter in a city name</CardTitle>
             </CardHeader>
             <CardContent>
-              <p> Try your favourite City!</p>
+              <p> Try your favourite city!</p>
             </CardContent>
           </Card>}
       </div>
