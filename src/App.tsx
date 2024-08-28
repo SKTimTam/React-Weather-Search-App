@@ -4,12 +4,10 @@ import { WeatherRequestResponse } from './types/WeatherRequests';
 import { Input } from './components/ui/input';
 import { Button  } from './components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
-import { getWeatherDataApi } from './services/WeatherDataAPI';
+import { getWeather, getWeatherDataApi, ApiResponse } from './services/WeatherDataAPI';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import { Header } from './components/ui/header';
 import WeatherCard from './components/ui/weatherCard';
-import useWeatherDate from './hooks/useWeatherData';
-import getWeatherData from './services/getWeatherData';
 
 
 
@@ -20,12 +18,7 @@ import getWeatherData from './services/getWeatherData';
   const [city, setCity] = useState<string>('');
   const [history, setHistory] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false); 
-  //const {data, error, isLoading: loading} = useWeatherDate(city);
-  //console.log(data, error, loading)
-  //console.log(city)
-  //lets try to move line 35 to a seperate service and hook with useQuery this 
-  //const apple = getWeatherData<WeatherRequestResponse>(city).then((x)=>{return(x) })
-  //console.log(apple)
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setCity(e.target.value)
   }
@@ -36,7 +29,9 @@ import getWeatherData from './services/getWeatherData';
     return null
   }
 
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
+    const data = await getWeather(city)
+    setWeatherData(data?.data[0])
     getWeatherDataApi(city, setWeatherData, setIsLoading);
     setHistory((history) => [...history, city]);
   }
