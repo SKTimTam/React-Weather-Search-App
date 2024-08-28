@@ -1,13 +1,13 @@
 import { WeatherRequestResponse } from "@/types/WeatherRequests";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { Dispatch, SetStateAction } from "react";
 
 //export const [weatherData,setWeatherData] = useState<WeatherRequestResponse | null>(null);
 
 const token = process.env.REACT_APP_API_KEY;
 
-export const getWeatherDataApi = (city:string, setWeatherData: Dispatch<SetStateAction<WeatherRequestResponse | undefined>>, setIsLoading: Dispatch<React.SetStateAction<boolean>>) => {
-    return axios.get<WeatherRequestResponse>(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${city}`)  
+export const getWeatherDataApi = async (city:string, setWeatherData: Dispatch<SetStateAction<WeatherRequestResponse | undefined>>, setIsLoading: Dispatch<React.SetStateAction<boolean>>) => {
+    return await axios.get<WeatherRequestResponse>(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${city}`)  
     .then ((response) => {
       setWeatherData(response.data);
       setIsLoading(true);
